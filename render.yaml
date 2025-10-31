@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: cineai-app
+    runtime: python
+    pythonVersion: 3.11.9
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "gunicorn bot:app"
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+    autoDeploy: true
